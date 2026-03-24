@@ -1,0 +1,109 @@
+T3258 006:674.500   SEGGER J-Link V9.22 Log File
+T3258 006:674.587   DLL Compiled: Feb 24 2026 12:18:18
+T3258 006:674.594   Logging started @ 2026-03-24 13:11
+T3258 006:674.600   Process: D:\Keil_v5\UV4\UV4.exe
+T3258 006:674.606 - 45.088ms 
+T3258 006:674.617 JLINK_SetWarnOutHandler(...)
+T3258 006:674.623 - 0.005ms 
+T3258 006:674.629 JLINK_OpenEx(...)
+T3258 006:677.479   Firmware: J-Link OB-STM32F103 V1 compiled Jan  7 2019 14:10:25
+T3258 006:713.493   Firmware: J-Link OB-STM32F103 V1 compiled Jan  7 2019 14:10:25
+T3258 006:734.664   Hardware: V1.00
+T3258 006:734.692   S/N: 4294967295
+T3258 006:734.700   OEM: SEGGER
+T3258 006:734.707   Feature(s): None
+T3258 006:735.446   Bootloader: (FW returned invalid version)
+T3258 006:737.029   TELNET listener socket opened on port 19021
+T3258 006:740.977   WEBSRV WEBSRV_Init(): Starting webserver thread(s)
+T3258 006:741.141   WEBSRV Webserver running on local port 19080
+T3258 006:741.247   Looking for J-Link GUI Server exe at: D:\Keil_v5\ARM\Segger\JLinkGUIServer.exe
+T3258 006:741.275   Looking for J-Link GUI Server exe at: D:\SEGGER\JLink_V922\JLinkGUIServer.exe
+T3258 006:741.289   Forking J-Link GUI Server: D:\SEGGER\JLink_V922\JLinkGUIServer.exe
+T3258 006:743.800   J-Link GUI Server info: "J-Link GUI server V9.22 "
+T3258 006:744.085 - 69.455ms returns "O.K."
+T3258 006:744.108 JLINK_GetEmuCaps()
+T3258 006:744.115 - 0.006ms returns 0x88EA5A33
+T3258 006:744.121 JLINK_TIF_GetAvailable(...)
+T3258 006:744.827 - 0.705ms 
+T3258 006:744.857 JLINK_SetErrorOutHandler(...)
+T3258 006:744.864 - 0.007ms 
+T3258 006:744.884 JLINK_ExecCommand("ProjectFile = "C:\Users\27356\Desktop\FDCAN\MDK-ARM\JLinkSettings.ini"", ...). 
+T3258 006:746.882 - 1.998ms returns 0x00
+T3258 006:747.677 JLINK_ExecCommand("Device = STM32H723VGTx", ...). 
+T3258 006:747.919   Flash bank @ 0x08000000: SFL: Parsing sectorization info from ELF file
+T3258 006:747.929     FlashDevice.SectorInfo[0]: .SectorSize = 0x00020000, .SectorStartAddr = 0x00000000
+T3258 006:747.937   FlashBank @0x08000000: Sectorization info from SFL ELF file ignored because sectorization override from DLL / XML file is active.
+T3258 006:748.156   Flash bank @ 0x90000000: SFL: Parsing sectorization info from ELF file
+T3258 006:748.166     FlashDevice.SectorInfo[0]: .SectorSize = 0x00010000, .SectorStartAddr = 0x00000000
+T3258 006:750.158   Device "STM32H723VG" selected.
+T3258 006:750.429 - 2.750ms returns 0x00
+T3258 006:750.443   ERROR: Unknown command
+T3258 006:750.452 JLINK_GetHardwareVersion()
+T3258 006:750.457 - 0.005ms returns 10000
+T3258 006:750.462 JLINK_GetDLLVersion()
+T3258 006:750.467 - 0.004ms returns 92200
+T3258 006:750.472 JLINK_GetOEMString(...)
+T3258 006:750.477 JLINK_GetFirmwareString(...)
+T3258 006:750.482 - 0.004ms 
+T3258 006:750.489 JLINK_GetDLLVersion()
+T3258 006:750.494 - 0.004ms returns 92200
+T3258 006:750.499 JLINK_GetCompileDateTime()
+T3258 006:750.504 - 0.004ms 
+T3258 006:750.509 JLINK_GetFirmwareString(...)
+T3258 006:750.514 - 0.004ms 
+T3258 006:750.520 JLINK_GetHardwareVersion()
+T3258 006:750.524 - 0.004ms returns 10000
+T3258 006:750.529 JLINK_GetSN()
+T3258 006:750.534 - 0.004ms returns -1
+T3258 006:750.539 JLINK_GetOEMString(...)
+T3258 006:750.546 JLINK_TIF_Select(JLINKARM_TIF_SWD)
+T3258 006:752.996 - 2.448ms returns 0x00
+T3258 006:753.024 JLINK_HasError()
+T3258 006:753.033 JLINK_SetSpeed(5000)
+T3258 006:753.625 - 0.592ms 
+T3258 006:753.984 JLINK_HasError()
+T3258 006:754.002 JLINK_SetResetType(JLINKARM_RESET_TYPE_NORMAL)
+T3258 006:754.009 - 0.007ms returns JLINKARM_RESET_TYPE_NORMAL
+T3258 006:754.017 JLINK_Reset()
+T3258 006:754.699   ConfigTargetSettings() start
+T3258 006:754.720    J-Link Script File: Executing ConfigTargetSettings()
+T3258 006:754.737   ConfigTargetSettings() end - Took 15us
+T3258 006:754.745   InitTarget() start
+T3258 006:754.753    J-Link Script File: Executing InitTarget()
+T3258 006:755.459   SWD selected. Executing JTAG -> SWD switching sequence.
+T3258 006:759.880   DAP initialized successfully.
+T3258 006:784.243   InitTarget() end - Took 29.4ms
+T3258 006:786.341   Found SW-DP with ID 0x6BA02477
+T3258 006:789.897   Old FW that does not support reading DPIDR via DAP jobs
+T3258 006:791.089   DPv0 detected
+T3258 006:791.109   CoreSight SoC-400 or earlier
+T3258 006:791.120   Scanning AP map to find all available APs
+T3258 006:794.211   AP[3]: Stopped AP scan as end of AP map has been reached
+T3258 006:794.230   AP[0]: AHB-AP (IDR: 0x84770001, ADDR: 0x00000000)
+T3258 006:794.240   AP[1]: AHB-AP (IDR: 0x84770001, ADDR: 0x01000000)
+T3258 006:794.250   AP[2]: APB-AP (IDR: 0x54770002, ADDR: 0x02000000)
+T3258 006:794.261   Iterating through AP map to find AHB-AP to use
+T3258 006:796.145   AP[0]: Core found
+T3258 006:796.165   AP[0]: AHB-AP ROM base: 0xE00FE000
+T3258 006:797.133   CPUID register: 0x411FC272. Implementer code: 0x41 (ARM)
+T3258 006:797.996   Cache: L1 I/D-cache present
+T3258 006:798.008   Found Cortex-M7 r1p2, Little endian.
+T3258 006:799.168   -- Max. mem block: 0x00002B30
+T3258 006:800.768   Looking for J-Link GUI Server exe at: D:\Keil_v5\ARM\Segger\JLinkGUIServer.exe
+T3258 006:800.817   Looking for J-Link GUI Server exe at: D:\SEGGER\JLink_V922\JLinkGUIServer.exe
+T3258 006:800.837   Forking J-Link GUI Server: D:\SEGGER\JLink_V922\JLinkGUIServer.exe
+T3258 006:804.209   J-Link GUI Server info: "J-Link GUI server V9.22 "
+T3258 033:334.412   
+  ***** Error: 
+T3258 033:334.444   Specific core setup failed.
+T3258 033:334.454 - 26580.438ms 
+T3258 033:335.482 JLINK_GetId()
+T3258 033:336.138 - 0.656ms returns 0x6BA02477
+T3258 033:347.146 JLINK_GetFirmwareString(...)
+T3258 033:347.178 - 0.031ms 
+TE7F8 034:660.516   
+  ***** Error: Connection to emulator lost!
+T3258 094:885.488 JLINK_Close()
+T3258 094:897.928 - 12.440ms
+T3258 094:897.960   
+T3258 094:897.960   Closed
