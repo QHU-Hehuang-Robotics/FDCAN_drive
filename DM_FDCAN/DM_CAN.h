@@ -1,11 +1,9 @@
 #ifndef __DM_CAN_h
 #define __DM_CAN_h
 
+#include "main.h"
 #include "CAN_drive.h"
-#include "cmsis_os.h"
-#include "cordic.h"
-#include "fdcan.h"
-#include "gpio.h"
+
 
 typedef enum {
     STATE_MOTOR_OFF,      // 未使能
@@ -23,5 +21,9 @@ typedef struct {
     float target_pos;     // 目标位置
     float target_vel;     // 目标速度
 } DM_Motor_t;
+
+void DM_Motor_Simple_Run(FDCAN_MsgPacket_t *packet, float vel, uint8_t motor_id);
+void DM_Motor_Disable(FDCAN_MsgPacket_t *packet, uint8_t motor_id);
+void DM_Motor_Enable(FDCAN_MsgPacket_t *packet, uint8_t motor_id);
 
 #endif

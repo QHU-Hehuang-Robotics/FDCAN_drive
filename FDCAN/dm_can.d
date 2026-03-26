@@ -1,6 +1,5 @@
 fdcan\dm_can.o: DM_FDCAN\DM_CAN.c
 fdcan\dm_can.o: DM_FDCAN\DM_CAN.h
-fdcan\dm_can.o: DM_FDCAN\CAN_drive.h
 fdcan\dm_can.o: ../Core/Inc/main.h
 fdcan\dm_can.o: ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h
 fdcan\dm_can.o: ../Core/Inc/stm32h7xx_hal_conf.h
@@ -38,17 +37,5 @@ fdcan\dm_can.o: ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr.h
 fdcan\dm_can.o: ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h
 fdcan\dm_can.o: ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h
 fdcan\dm_can.o: ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h
-fdcan\dm_can.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
-fdcan\dm_can.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-fdcan\dm_can.o: ../Core/Inc/FreeRTOSConfig.h
-fdcan\dm_can.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
-fdcan\dm_can.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
-fdcan\dm_can.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
-fdcan\dm_can.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h
-fdcan\dm_can.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
-fdcan\dm_can.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
-fdcan\dm_can.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
-fdcan\dm_can.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
-fdcan\dm_can.o: ../Core/Inc/cordic.h
-fdcan\dm_can.o: ../Core/Inc/fdcan.h
-fdcan\dm_can.o: ../Core/Inc/gpio.h
+fdcan\dm_can.o: DM_FDCAN\CAN_drive.h
+fdcan\dm_can.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

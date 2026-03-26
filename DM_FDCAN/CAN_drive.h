@@ -3,9 +3,6 @@
 
 #include "main.h"
 
-#define FDCAN_MOD 
-
-#ifdef FDCAN_MOD
 
 typedef struct {
     uint32_t can_id;
@@ -42,7 +39,7 @@ typedef struct {
     FDCAN_TxHeaderTypeDef    TxHeader;
     FDCAN_RxHeaderTypeDef    RxHeader;
     FDCAN_FilterTypeDef      FilterHeader;
-    __attribute__((aligned(4))) uint8_t Data[64];
+    __attribute__((aligned(4))) uint8_t TxData[8];
 } FDCAN_MsgPacket_t;
 
 #define CAN_STANDARD            FDCAN_STANDARD_ID
@@ -67,13 +64,29 @@ typedef struct {
 #define CAN_MASK_ALL            0x000
 #define CAN_MASK_EXACT          0x7FF
 
-#define CAN_START(h)    do { \
-    HAL_FDCAN_Start(h); \
-    HAL_FDCAN_ActivateNotification(h, FDCAN_IT_RX_FIFO0_NEW_MESSAGE, 0); \
-    HAL_FDCAN_ActivateNotification(h, FDCAN_IT_RX_FIFO1_NEW_MESSAGE, 0); \
+#define CAN_START(p)    do { \
+    HAL_StatusTypeDef status; \
+    (p)->State = CAN_STATE_STARTING; \
+    status = HAL_FDCAN_Start((p)->hfdcan); \
+    if (status == HAL_OK) { \
+        status = HAL_FDCAN_ActivateNotification((p)->hfdcan, FDCAN_IT_RX_FIFO0_NEW_MESSAGE, 0); \
+    } \
+    if (status == HAL_OK) { \
+        status = HAL_FDCAN_ActivateNotification((p)->hfdcan, FDCAN_IT_RX_FIFO1_NEW_MESSAGE, 0); \
+    } \
+    \
+    if (status != HAL_OK) { \
+        (p)->State = CAN_STATE_CONFIG_ERROR; \
+    } else { \
+        (p)->State = CAN_STATE_NORMAL; \
+    } \
 } while(0)
 
 
 
-#endif /* FDCAN_MOD */
+void FDCAN_Send_Msg(FDCAN_MsgPacket_t *packet);
+void FDCAN_Init(FDCAN_MsgPacket_t *packet, FDCAN_FilterConf_t *conf,uint32_t can_id);
+void FDCAN_TxHeader_Init(FDCAN_MsgPacket_t *packet, uint32_t can_id);
+void FDCAN_Filter_Config(FDCAN_MsgPacket_t *packet, const FDCAN_FilterConf_t *conf);
+
 #endif /* __CAN_DRIVE_H */

@@ -33,11 +33,31 @@ void FDCAN_TxHeader_Init(FDCAN_MsgPacket_t *packet, uint32_t can_id)
 
 void FDCAN_Init(FDCAN_MsgPacket_t *packet, FDCAN_FilterConf_t *conf,uint32_t can_id)
 {
-    FDCAN_Filter_Config(packet,conf);
-    if (HAL_FDCAN_Start(&packet->hfdcan) != HAL_OK) {
-        packet->State = CAN_STATE_ERROR_WARNING;
+    HAL_FDCAN_Stop(packet->hfdcan);
+
+    FDCAN_Filter_Config(packet, conf);
+    
+    HAL_FDCAN_ConfigGlobalFilter(packet->hfdcan, FDCAN_REJECT, FDCAN_REJECT, FDCAN_FILTER_REMOTE, FDCAN_FILTER_REMOTE);
+
+    FDCAN_TxHeader_Init(packet, can_id);
+
+    if (HAL_FDCAN_Start(packet->hfdcan) != HAL_OK) {
+        packet->State = CAN_STATE_CONFIG_ERROR;
+        return;
     }
-    packet->State = CAN_STATE_READY;
 }
 
-
+void FDCAN_Send_Msg(FDCAN_MsgPacket_t *packet)
+{
+    if (packet->State != CAN_STATE_NORMAL && packet->State != CAN_STATE_READY) {
+        return;
+    }
+    packet->State = CAN_STATE_BUSY_TX;
+    HAL_StatusTypeDef status = HAL_FDCAN_AddMessageToTxFifoQ(packet->hfdcan, &packet->TxHeader, packet->TxData);
+    if (status != HAL_OK) {
+        packet->State = CAN_STATE_ERROR_WARNING;
+    } else {
+        packet->State = CAN_STATE_NORMAL;
+    }
+    return;
+}
