@@ -16,25 +16,6 @@ void FDCAN_Filter_Config(FDCAN_MsgPacket_t *packet, const FDCAN_FilterConf_t *co
     HAL_FDCAN_ConfigFilter(packet->hfdcan, &tmpFilter);
 }
 
-void FDCAN_FilterHeader_Init(FDCAN_MsgPacket_t *packet, uint8_t index, uint32_t type, uint32_t config, uint32_t id1, uint32_t id2)
-{
-    if (packet->hfdcan == NULL) return;
-
-    packet->FilterHeader.IdType       = CAN_STANDARD;
-    packet->FilterHeader.FilterIndex  = index;
-    packet->FilterHeader.FilterType   = type;
-    packet->FilterHeader.FilterConfig = config;
-    packet->FilterHeader.FilterID1    = id1;
-    packet->FilterHeader.FilterID2    = id2;
-    packet->FilterHeader.RxBufferIndex = 0;
-    packet->FilterHeader.IsCalibrationMsg = 0;
-
-    if (HAL_FDCAN_ConfigFilter(packet->hfdcan, &packet->FilterHeader) != HAL_OK) {
-        packet->State = CAN_STATE_CONFIG_ERROR;
-        return;
-    }
-}
-
 void FDCAN_TxHeader_Init(FDCAN_MsgPacket_t *packet, uint32_t can_id)
 {
     packet->TxHeader.Identifier          = can_id;
@@ -49,4 +30,14 @@ void FDCAN_TxHeader_Init(FDCAN_MsgPacket_t *packet, uint32_t can_id)
     
     packet->State = CAN_STATE_READY;
 }
+
+void FDCAN_Init(FDCAN_MsgPacket_t *packet, FDCAN_FilterConf_t *conf,uint32_t can_id)
+{
+    FDCAN_Filter_Config(packet,conf);
+    if (HAL_FDCAN_Start(&packet->hfdcan) != HAL_OK) {
+        packet->State = CAN_STATE_ERROR_WARNING;
+    }
+    packet->State = CAN_STATE_READY;
+}
+
 

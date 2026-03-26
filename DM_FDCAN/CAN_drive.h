@@ -73,9 +73,7 @@ typedef struct {
     HAL_FDCAN_ActivateNotification(h, FDCAN_IT_RX_FIFO1_NEW_MESSAGE, 0); \
 } while(0)
 
-/* --- 6. 函数声明 --- */
-void FDCAN_TxHeader_Init(FDCAN_MsgPacket_t *packet, uint32_t can_id);
-void FDCAN_FilterHeader_Init(FDCAN_MsgPacket_t *packet, uint8_t index, uint32_t type, uint32_t config, uint32_t id1, uint32_t id2);
+
 
 #endif /* FDCAN_MOD */
 #endif /* __CAN_DRIVE_H */
